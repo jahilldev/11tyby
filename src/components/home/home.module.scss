@@ -1,0 +1,25 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Content
+ *
+ * -------------------------------- */
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -----------------------------------
+ *
+ * Text
+ *
+ * -------------------------------- */
+
+.text {
+  font-size: 64px;
+  font-weight: 100;
+  color: white;
+}
