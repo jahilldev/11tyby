@@ -2,16 +2,27 @@
 
 /* -----------------------------------
  *
- * Content
+ * Title
  *
  * -------------------------------- */
 
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  flex-direction: column;
+.title {
+  text-align: center;
+  font-weight: 400;
+  color: white;
+}
+
+/* -----------------------------------
+ *
+ * Input
+ *
+ * -------------------------------- */
+
+.input {
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: none;
 }
 
 /* -----------------------------------
@@ -21,18 +32,7 @@
  * -------------------------------- */
 
 .text {
-  font-size: 64px;
-  font-weight: 100;
-  color: white;
-  margin: 0 0 0.6em;
-}
-
-/* -----------------------------------
- *
- * Form
- *
- * -------------------------------- */
-
-.form {
-  display: block;
+  color: #f1f1f1;
+  font-size: 16px;
+  text-align: center;
 }

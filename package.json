@@ -6,18 +6,20 @@
   "author": "jhukdev",
   "license": "MIT",
   "scripts": {
-    "start": "npm-run-all clean build:pages -p watch:*",
+    "start": "npm-run-all clean build:pages build:entry -p watch:*",
     "clean": "rimraf dist src/_js",
     "build": "npm-run-all clean build:pages build:11ty",
     "build:pages": "webpack --config webpack.server.js",
+    "build:entry": "webpack --config webpack.client.js",
     "build:11ty": "eleventy --quiet",
     "watch:pages": "yarn build:pages --watch",
+    "watch:entry": "yarn build:entry --watch",
     "watch:11ty": "eleventy --serve --quiet --watch",
     "lint": "eslint ./src/**/*.ts*",
     "test": "jest"
   },
   "dependencies": {
-    "preact": "10.4.8",
+    "preact": "10.5.2",
     "preact-render-to-string": "5.1.10"
   },
   "devDependencies": {
@@ -38,8 +40,9 @@
     "rimraf": "3.0.2",
     "sass": "1.26.11",
     "sass-loader": "10.0.2",
+    "style-loader": "^1.2.1",
     "ts-loader": "8.0.4",
-    "typescript": "3.9.5",
+    "typescript": "4.0.3",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12"
   }

@@ -8,6 +8,8 @@ import { h } from 'preact';
 
 interface IData {
   title: string;
+  cssPath: string;
+  jsPath: string;
 }
 
 /* -----------------------------------
@@ -29,12 +31,14 @@ class Page {
   data(): IData {
     return {
       title: 'Home - JH',
+      cssPath: 'index.11ty.css',
+      jsPath: 'index.entry.js',
     };
   }
 
-  render({ title }: IData) {
+  render({ title, cssPath, jsPath }: IData) {
     return (
-      <Html title={title} cssPath="index.11ty.css">
+      <Html title={title} cssPath={cssPath} jsPath={jsPath}>
         <Home />
       </Html>
     );

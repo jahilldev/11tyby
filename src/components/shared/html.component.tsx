@@ -10,6 +10,7 @@ import style from './html.module.scss';
 interface IProps {
   title?: string;
   cssPath?: string;
+  jsPath?: string;
   children: any;
 }
 
@@ -19,7 +20,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Html({ title = 'JH', cssPath, children }: IProps) {
+function Html({ title = 'JH', cssPath, jsPath, children }: IProps) {
   return (
     <html lang="en" class={style.html}>
       <head>
@@ -35,7 +36,10 @@ function Html({ title = 'JH', cssPath, children }: IProps) {
         ></link>
         {cssPath && <link rel="stylesheet" href={`/assets/${cssPath}`} />}
       </head>
-      <body class={style.body}>{children}</body>
+      <body class={style.body}>
+        {children}
+        {jsPath && <script src={`/assets/${jsPath}`} />}
+      </body>
     </html>
   );
 }

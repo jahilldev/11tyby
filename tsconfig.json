@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "rootDir": "./",
+    "baseUrl": "./",
+    "target": "ES2017",
     "module": "commonjs",
     "moduleResolution": "node",
     "strict": true,
@@ -8,8 +10,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "rootDir": "./src/",
     "jsx": "react",
-    "jsxFactory": "h"
-  }
+    "jsxFactory": "h",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
 }
