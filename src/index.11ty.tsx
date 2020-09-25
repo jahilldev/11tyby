@@ -30,7 +30,7 @@ import { Home } from './components/home';
 class Page {
   data(): IData {
     return {
-      title: 'Home - JH',
+      title: 'Home - 11ty',
       cssPath: 'index.11ty.css',
       jsPath: 'index.entry.js',
     };

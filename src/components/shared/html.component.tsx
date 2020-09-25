@@ -20,7 +20,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Html({ title = 'JH', cssPath, jsPath, children }: IProps) {
+function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
   return (
     <html lang="en" class={style.html}>
       <head>
