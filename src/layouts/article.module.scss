@@ -2,10 +2,25 @@
 
 /* -----------------------------------
  *
+ * Content
+ *
+ * -------------------------------- */
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* -----------------------------------
+ *
  * Article
  *
  * -------------------------------- */
 
 .article {
   font-size: 18px;
+  color: white;
+  text-align: center;
 }

@@ -10,6 +10,7 @@ import style from './article.module.scss';
 interface IData {
   title: string;
   content: string;
+  cssPath: string;
 }
 
 /* -----------------------------------
@@ -27,10 +28,12 @@ import { Html } from '../components/shared';
  * -------------------------------- */
 
 class Page {
-  render({ title, content }: IData) {
+  render({ title, content, cssPath }: IData) {
     return (
-      <Html title={title}>
-        <article class={style.article} dangerouslySetInnerHTML={{ __html: content }} />
+      <Html title={title} cssPath={cssPath}>
+        <main class={style.content}>
+          <article class={style.article} dangerouslySetInnerHTML={{ __html: content }} />
+        </main>
       </Html>
     );
   }
