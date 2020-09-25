@@ -14,21 +14,30 @@ function getElementName(value: string) {
 
 /* -----------------------------------
  *
- * Root
+ * Roots
  *
  * -------------------------------- */
 
-function getElementRoot(name: string) {
+function getElementRoots(name: string) {
   const elementName = getElementName(name);
-  const root = document?.querySelector(elementName);
-  const data = root?.querySelector('[type="application/json"]');
-  const props = JSON.parse(data?.innerHTML || '');
+  const elements = document?.querySelectorAll(elementName);
 
-  if (root) {
-    root.innerHTML = '';
+  if (!elements) {
+    throw new Error(`Missing hydration element ${elementName}`);
   }
 
-  return { root, props };
+  const result = [];
+
+  for (let root of Array.from(elements)) {
+    const data = root?.querySelector('[type="application/json"]');
+    const props = JSON.parse(data?.innerHTML || '');
+
+    root.innerHTML = '';
+
+    result.push({ root, props });
+  }
+
+  return result;
 }
 
 /* -----------------------------------
@@ -65,13 +74,9 @@ function mount(components: { [index: string]: ComponentFactory }) {
 
   elementNames.forEach((name) => {
     const component = components[name];
-    const { root, props } = getElementRoot(name);
+    const roots = getElementRoots(name);
 
-    if (!root) {
-      throw new Error(`Missing hydration element ${name}`);
-    }
-
-    render(h(component, props), root);
+    roots.forEach(({ root, props }) => render(h(component, props), root));
   });
 }
 
