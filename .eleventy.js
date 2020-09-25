@@ -24,6 +24,14 @@ module.exports = function (config) {
     return content;
   });
 
+  config.addTransform('transform-hash', (content, path) => {
+    if (path.endsWith('.html')) {
+      return transformFileHash(content);
+    }
+
+    return content;
+  });
+
   return {
     passthroughFileCopy: true,
     dir: {
@@ -34,3 +42,18 @@ module.exports = function (config) {
     },
   };
 };
+
+/* -----------------------------------
+ *
+ * Hashes
+ *
+ * -------------------------------- */
+
+function transformFileHash(content) {
+  const assets = require('./src/_js/assets.json');
+  const keys = Object.keys(assets);
+
+  return keys.reduce((result, key) => {
+    return result.replace(key, assets[key]);
+  }, content);
+}

@@ -39,7 +39,7 @@ const sassLoader = {
  * -------------------------------- */
 
 module.exports = {
-  mode: RELEASE ? 'production' : 'development',
+  mode: 'development',
   entry: glob.sync(__dirname + '/src/**/*.11ty.ts*').reduce(getEntryFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
@@ -66,7 +66,7 @@ module.exports = {
       patterns: [{ from: 'articles', to: 'articles' }],
     }),
     new AssetsManifestPlugin({
-      output: 'assets/assets.json',
+      output: 'assets.json',
       merge: true,
       customize: (item) => {
         const [key] = item.key.split('/').slice(-1);

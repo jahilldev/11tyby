@@ -53,7 +53,7 @@ module.exports = {
   },
   plugins: [
     new AssetsManifestPlugin({
-      output: 'assets.json',
+      output: '../assets.json',
       merge: true,
     }),
   ],
