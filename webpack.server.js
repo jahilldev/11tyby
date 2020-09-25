@@ -72,14 +72,11 @@ module.exports = {
         const [key] = item.key.split('/').slice(-1);
         const [value] = item.value.split('/').slice(-1);
 
-        return { key, value };
-      },
-      transform: (data) => {
-        Object.keys(data)
-          .filter((key) => key.endsWith('.11ty.js'))
-          .forEach((key) => delete data[key]);
+        if (value.endsWith('.11ty.js')) {
+          return false;
+        }
 
-        return data;
+        return { key, value };
       },
     }),
   ],
