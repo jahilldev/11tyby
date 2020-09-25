@@ -44,6 +44,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/src/_js/assets'),
     filename: RELEASE ? '[name].[chunkhash:8].js' : '[name].js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss'],
@@ -106,6 +107,20 @@ module.exports = {
         ],
       },
     ],
+  },
+  optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
   },
 };
 

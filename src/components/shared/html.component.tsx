@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, Fragment } from 'preact';
 import style from './html.module.scss';
 
 /* -----------------------------------
@@ -21,6 +21,8 @@ interface IProps {
  * -------------------------------- */
 
 function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
+  const scripts = ['vendor.js', jsPath, 'runtime.js'];
+
   return (
     <html lang="en" class={style.html}>
       <head>
@@ -38,7 +40,13 @@ function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
       </head>
       <body class={style.body}>
         {children}
-        {jsPath && <script src={`/assets/${jsPath}`} />}
+        {jsPath && (
+          <Fragment>
+            {scripts.map((script) => (
+              <script src={`/assets/${script}`} defer={true} />
+            ))}
+          </Fragment>
+        )}
       </body>
     </html>
   );
