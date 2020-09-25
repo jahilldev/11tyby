@@ -8,7 +8,7 @@
 
 .title {
   text-align: center;
-  font-weight: 400;
+  font-weight: 300;
   color: white;
 }
 
@@ -19,9 +19,10 @@
  * -------------------------------- */
 
 .input {
-  font-size: 18px;
-  padding: 4px 8px;
+  font-size: 15px;
+  padding: 8px 10px;
   border-radius: 2px;
+  min-width: 320px;
   border: none;
 }
 
@@ -33,6 +34,6 @@
 
 .text {
   color: #f1f1f1;
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
 }
