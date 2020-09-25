@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm-run-all clean build:pages build:entry -p watch:*",
     "clean": "rimraf dist src/_js",
-    "build": "npm-run-all clean build:pages build:11ty",
+    "build": "npm-run-all clean build:pages build:11ty build:entry",
     "build:pages": "webpack --config webpack.server.js",
     "build:entry": "webpack --config webpack.client.js",
     "build:11ty": "eleventy --quiet",
@@ -44,6 +44,7 @@
     "ts-loader": "8.0.4",
     "typescript": "4.0.3",
     "webpack": "4.44.2",
+    "webpack-assets-manifest": "3.1.1",
     "webpack-cli": "3.3.12"
   }
 }

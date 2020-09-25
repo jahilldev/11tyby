@@ -1,6 +1,14 @@
 const glob = require('glob');
 const path = require('path');
-const fs = require('fs');
+const AssetsManifestPlugin = require('webpack-assets-manifest');
+
+/* -----------------------------------
+ *
+ * Flags
+ *
+ * -------------------------------- */
+
+const RELEASE = !process.argv.includes('--watch');
 
 /* -----------------------------------
  *
@@ -28,14 +36,14 @@ const sassLoader = {
  * -------------------------------- */
 
 module.exports = {
-  mode: 'development',
+  mode: RELEASE ? 'production' : 'development',
   entry: glob.sync(__dirname + '/src/entry/*.entry.ts*').reduce(getEntryFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
   target: 'web',
   output: {
     path: path.join(__dirname, '/src/_js/assets'),
-    filename: '[name].js',
+    filename: RELEASE ? '[name].[chunkhash:8].js' : '[name].js',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss'],
@@ -43,6 +51,12 @@ module.exports = {
       '@': path.resolve(__dirname, `./src/`),
     },
   },
+  plugins: [
+    new AssetsManifestPlugin({
+      output: 'assets.json',
+      merge: true,
+    }),
+  ],
   module: {
     rules: [
       {
