@@ -4,7 +4,7 @@
 
 ## Why
 
-Getting setup with the necessary tooling to handle TypeScript, JSX, dynamic imports, SASS etc is time consuming.
+Getting setup with the necessary tooling to handle TypeScript, JSX, dynamic imports, SASS etc is time consuming. This project also has partial component hydration to reduce the amount of code shipped to your users.
 
 ## Installation
 
