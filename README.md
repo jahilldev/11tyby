@@ -32,7 +32,7 @@ yarn
 yarn start
 ```
 
-### 4. Build you site for deployment
+### 4. Build your site for deployment
 
 ```shell
 yarn build
