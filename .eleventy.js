@@ -16,7 +16,7 @@ module.exports = function (config) {
 
   config.setUseGitIgnore(false);
 
-  config.addTransform('transform-jsx', (content) => {
+  config.addTransform('jsx', (content) => {
     if (isValidElement(content)) {
       return render(content);
     }
@@ -24,7 +24,7 @@ module.exports = function (config) {
     return content;
   });
 
-  config.addTransform('transform-hash', (content, path) => {
+  config.addTransform('hash', (content, path) => {
     if (path.endsWith('.html')) {
       return transformFileHash(content);
     }
