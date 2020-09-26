@@ -9,11 +9,9 @@
     "start": "npm-run-all clean -p watch:*",
     "clean": "rimraf dist src/_js",
     "build": "npm-run-all clean build:*",
-    "build:pages": "webpack --config webpack.server.js",
-    "build:entry": "webpack --config webpack.client.js",
+    "build:pages": "webpack",
     "build:11ty": "eleventy --quiet",
     "watch:pages": "yarn build:pages --watch",
-    "watch:entry": "yarn build:entry --watch",
     "watch:11ty": "eleventy --serve --quiet --watch",
     "lint": "eslint ./src/**/*.ts*",
     "test": "jest"
