@@ -44,9 +44,9 @@ function getElementRoots(elementName: string) {
  *
  * -------------------------------- */
 
-function applyHydration(component: ComponentFactory<any>) {
+function applyHydration(name: string, component: ComponentFactory<any>) {
   const isPrerender = typeof window === 'undefined';
-  const elementName = getElementName(component.name);
+  const elementName = getElementName(name);
 
   if (!isPrerender) {
     return hydrate(elementName, component);
