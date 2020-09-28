@@ -1,5 +1,5 @@
 import { Form as Component } from './form.component';
-import { hydrate } from '@/utility/hydrate.utility';
+import { applyHydration } from '@/utility/hydrate.utility';
 
 /* -----------------------------------
  *
@@ -7,7 +7,7 @@ import { hydrate } from '@/utility/hydrate.utility';
  *
  * -------------------------------- */
 
-const Form = hydrate(Component);
+const Form = applyHydration(Component);
 
 /* -----------------------------------
  *

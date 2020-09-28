@@ -1,4 +1,4 @@
-import { h, render, ComponentFactory } from 'preact';
+import { h, hydrate as preactHydrate, ComponentFactory } from 'preact';
 
 /* -----------------------------------
  *
@@ -18,12 +18,11 @@ function getElementName(value: string) {
  *
  * -------------------------------- */
 
-function getElementRoots(name: string) {
-  const elementName = getElementName(name);
+function getElementRoots(elementName: string) {
   const elements = document?.querySelectorAll(elementName);
 
-  if (!elements) {
-    throw new Error(`Missing hydration element ${elementName}`);
+  if (!elements.length) {
+    throw new Error(`Missing hydration element "<${elementName}>"`);
   }
 
   const result = [];
@@ -42,26 +41,27 @@ function getElementRoots(name: string) {
 
 /* -----------------------------------
  *
- * Hydrate
+ * Hydration
  *
  * -------------------------------- */
 
-const hydrate = (component: ComponentFactory<any>) => (props: any) => {
+function applyHydration(component: ComponentFactory<any>) {
   const isPrerender = typeof window === 'undefined';
   const elementName = getElementName(component.name);
 
   if (!isPrerender) {
-    return h(component, props);
+    return hydrate(elementName, component);
   }
 
-  return h(elementName, {}, [
-    h('script', {
-      type: 'application/json',
-      dangerouslySetInnerHTML: { __html: JSON.stringify(props) },
-    }),
-    h(component, props),
-  ]);
-};
+  return (props: any) =>
+    h(elementName, {}, [
+      h('script', {
+        type: 'application/json',
+        dangerouslySetInnerHTML: { __html: JSON.stringify(props) },
+      }),
+      h(component, props),
+    ]);
+}
 
 /* -----------------------------------
  *
@@ -69,15 +69,12 @@ const hydrate = (component: ComponentFactory<any>) => (props: any) => {
  *
  * -------------------------------- */
 
-function mount(components: { [index: string]: ComponentFactory }) {
-  const elementNames = Object.keys(components);
+function hydrate(elementName: string, component: ComponentFactory<any>) {
+  const roots = getElementRoots(elementName);
 
-  elementNames.forEach((name) => {
-    const component = components[name];
-    const roots = getElementRoots(name);
+  roots.forEach(({ root, props }) => preactHydrate(h(component, props), root));
 
-    roots.forEach(({ root, props }) => render(h(component, props), root));
-  });
+  return component;
 }
 
 /* -----------------------------------
@@ -86,4 +83,4 @@ function mount(components: { [index: string]: ComponentFactory }) {
  *
  * -------------------------------- */
 
-export { hydrate, mount };
+export { applyHydration, hydrate };
