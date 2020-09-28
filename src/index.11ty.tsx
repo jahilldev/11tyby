@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import style from './index.module.scss';
 
 /* -----------------------------------
  *
@@ -19,7 +20,7 @@ interface IData {
  * -------------------------------- */
 
 import { Html } from './components/shared';
-import { Home } from './components/home';
+import { Form } from '@/components/form';
 
 /* -----------------------------------
  *
@@ -39,7 +40,13 @@ class Page {
   render({ title, cssPath, jsPath }: IData) {
     return (
       <Html title={title} cssPath={cssPath} jsPath={jsPath}>
-        <Home />
+        <main class={style.content}>
+          <p class={style.text}>11ty Setup</p>
+          <a href="/articles/first-post" class={style.link}>
+            Go to the First post
+          </a>
+          <Form title="Hydrated Form" className={style.form} />
+        </main>
       </Html>
     );
   }

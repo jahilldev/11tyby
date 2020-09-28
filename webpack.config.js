@@ -70,7 +70,15 @@ const pages = {
       filename: RELEASE ? 'assets/[name].[hash:8].css' : 'assets/[name].css',
     }),
     new CopyPlugin({
-      patterns: [{ from: 'articles', to: 'articles' }],
+      patterns: [
+        {
+          from: 'articles',
+          to: 'articles',
+          globOptions: {
+            ignore: ['**/*.ts*', '**/*.scss'],
+          },
+        },
+      ],
     }),
     new AssetsManifestPlugin({
       output: 'assets.json',
