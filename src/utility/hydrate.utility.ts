@@ -7,7 +7,7 @@ import { h, hydrate as preactHydrate, ComponentFactory } from 'preact';
  * -------------------------------- */
 
 function getElementName(value: string) {
-  const result = [value.replace(/([a-z])([A-Z])/g, '$1-$2'), 'root'];
+  const result = ['component', value.replace(/([a-z])([A-Z])/g, '$1-$2')];
 
   return result.join('-').toLocaleLowerCase();
 }
@@ -31,8 +31,7 @@ function getElementRoots(elementName: string) {
     const data = root?.querySelector('[type="application/json"]');
     const props = JSON.parse(data?.innerHTML || '');
 
-    root.innerHTML = '';
-
+    data?.remove();
     result.push({ root, props });
   }
 
