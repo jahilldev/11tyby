@@ -137,8 +137,7 @@ const pages = {
             loader: 'file-loader',
             options: {
               name: '[hash:8].[ext]',
-              outputPath: 'assets',
-              publicPath: './',
+              outputPath: '/assets',
             },
           },
         ],
@@ -179,7 +178,7 @@ const entry = {
   output: {
     path: path.join(__dirname, '/src/_js/assets'),
     filename: RELEASE ? '[name].[chunkhash:8].js' : '[name].js',
-    publicPath: '/',
+    publicPath: '/assets/',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss'],
