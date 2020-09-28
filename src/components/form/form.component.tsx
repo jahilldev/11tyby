@@ -37,7 +37,11 @@ function Form({ title, className = '' }: IProps) {
         className={style.input}
         placeholder="Type something.."
       />
-      <p class={style.text}>{value}</p>
+      {value && (
+        <p class={style.text}>
+          <em>Value:</em> {value}
+        </p>
+      )}
     </form>
   );
 }
