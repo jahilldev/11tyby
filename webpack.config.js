@@ -67,7 +67,7 @@ const pages = {
   },
   plugins: [
     new ExtractCssPlugin({
-      filename: RELEASE ? 'assets/[name].[hash:8].css' : 'assets/[name].css',
+      filename: RELEASE ? 'assets/[name].[contenthash:8].css' : 'assets/[name].css',
     }),
     new CopyPlugin({
       patterns: [
