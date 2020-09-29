@@ -83,15 +83,12 @@ const pages = {
     new AssetsManifestPlugin({
       output: 'assets.json',
       merge: true,
-      customize: (item) => {
-        const [key] = item.key.split('/').slice(-1);
-        const [value] = item.value.split('/').slice(-1);
-
-        if (value.endsWith('.11ty.js')) {
+      customize: ({ key, value }) => {
+        if (value.endsWith('.11ty.js') || !value.endsWith('.css')) {
           return false;
         }
 
-        return { key, value };
+        return { key, value: value.replace('assets/', '') };
       },
     }),
   ],
