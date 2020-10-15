@@ -9,6 +9,7 @@ const { render } = require('preact-render-to-string');
 
 module.exports = function (config) {
   config.addPassthroughCopy('./src/_js/assets');
+  config.addPassthroughCopy('./src/_js/articles/_images');
 
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],
