@@ -45,4 +45,4 @@ class Page {
  *
  * -------------------------------- */
 
-export { Page };
+module.exports = Page;

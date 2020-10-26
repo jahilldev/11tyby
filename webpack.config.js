@@ -55,9 +55,12 @@ const pages = {
   output: {
     path: path.join(__dirname, '/src/_js'),
     filename: '[name].js',
+    libraryTarget: 'umd'
+    /*
     library: 'Page',
     libraryExport: 'Page',
     libraryTarget: 'commonjs2',
+    */
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss'],
