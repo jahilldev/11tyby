@@ -3,18 +3,6 @@ import style from './index.module.scss';
 
 /* -----------------------------------
  *
- * IData
- *
- * -------------------------------- */
-
-interface IData {
-  title: string;
-  cssPath: string;
-  jsPath: string;
-}
-
-/* -----------------------------------
- *
  * Components
  *
  * -------------------------------- */
