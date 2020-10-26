@@ -19,7 +19,7 @@ interface IData {
  *
  * -------------------------------- */
 
-import { Html } from '../components/shared';
+import { Html } from '@/components/shared';
 
 /* -----------------------------------
  *

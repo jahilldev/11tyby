@@ -7,7 +7,7 @@ import style from './index.module.scss';
  *
  * -------------------------------- */
 
-import { Html } from './components/shared';
+import { Html } from '@/components/shared';
 import { Form } from '@/components/form';
 
 /* -----------------------------------
