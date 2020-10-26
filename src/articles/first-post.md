@@ -1,5 +1,5 @@
 ---
-title: My cool website
+title: Hello, world!
 layout: article.11ty.js
 cssPath: layouts/article.11ty.css
 ---

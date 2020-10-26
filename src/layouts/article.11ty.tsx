@@ -27,16 +27,14 @@ import { Html } from '../components/shared';
  *
  * -------------------------------- */
 
-class Page {
-  render({ title, content, cssPath }: IData) {
-    return (
-      <Html title={title} cssPath={cssPath}>
-        <main class={style.content}>
-          <article class={style.article} dangerouslySetInnerHTML={{ __html: content }} />
-        </main>
-      </Html>
-    );
-  }
+function Page({ title, content, cssPath }: IData) {
+  return (
+    <Html title={title} cssPath={cssPath}>
+      <main class={style.content}>
+        <article class={style.article} dangerouslySetInnerHTML={{ __html: content }} />
+      </main>
+    </Html>
+  );
 }
 
 /* -----------------------------------

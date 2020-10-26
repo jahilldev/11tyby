@@ -28,28 +28,18 @@ import { Form } from '@/components/form';
  *
  * -------------------------------- */
 
-class Page {
-  data(): IData {
-    return {
-      title: 'Home - 11ty',
-      cssPath: 'index.11ty.css',
-      jsPath: 'index.entry.js',
-    };
-  }
-
-  render({ title, cssPath, jsPath }: IData) {
-    return (
-      <Html title={title} cssPath={cssPath} jsPath={jsPath}>
-        <main class={style.content}>
-          <p class={style.text}>11ty Setup</p>
-          <a href="/articles/first-post" class={style.link}>
-            Go to the First post
-          </a>
-          <Form title="Hydrated Form" className={style.form} />
-        </main>
-      </Html>
-    );
-  }
+function Page() {
+  return (
+    <Html title="Home - 11ty" cssPath="index.11ty.css" jsPath="index.entry.js">
+      <main class={style.content}>
+        <p class={style.text}>11ty Setup</p>
+        <a href="/articles/first-post" class={style.link}>
+          Go to the First post
+        </a>
+        <Form title="Hydrated Form" className={style.form} />
+      </main>
+    </Html>
+  );
 }
 
 /* -----------------------------------
