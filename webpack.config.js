@@ -260,13 +260,17 @@ const entry = {
     ],
   },
   optimization: {
+    mergeDuplicateChunks: true,
     moduleIds: 'hashed',
-    runtimeChunk: 'single',
+    runtimeChunk: false,
     splitChunks: {
+      name: true,
+      chunks: 'async',
       cacheGroups: {
+        default: false,
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
+          name: splitVendorChunks,
           chunks: 'all',
           enforce: true,
         },
@@ -274,6 +278,22 @@ const entry = {
     },
   },
 };
+
+/* -----------------------------------
+ *
+ * Vendor
+ *
+ * -------------------------------- */
+
+function splitVendorChunks(module, chunks) {
+  const chunkNames = chunks.filter(({ name }) => !(name || '').endsWith('.entry'));
+
+  if (chunkNames.length) {
+    return chunkNames[0].name;
+  }
+
+  return 'vendor';
+}
 
 /* -----------------------------------
  *
