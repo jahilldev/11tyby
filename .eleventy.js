@@ -19,7 +19,7 @@ module.exports = function (config) {
 
   config.addTransform('jsx', (content) => {
     if (isValidElement(content)) {
-      return render(content);
+      return `<!doctype html>${render(content)}`;
     }
 
     return content;
@@ -54,7 +54,8 @@ function transformFileHash(content) {
   const assets = require('./src/_js/assets.json');
   const keys = Object.keys(assets);
 
-  return keys.reduce((result, key) => {
-    return result.replace(key, assets[key]);
-  }, content);
+  return keys.reduce(
+    (result, key) => result.replace(`${key}"`, `${assets[key]}"`),
+    content
+  );
 }
