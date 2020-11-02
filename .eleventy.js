@@ -53,9 +53,10 @@ module.exports = function (config) {
 function transformFileHash(content) {
   const assets = require('./src/_js/assets.json');
   const keys = Object.keys(assets);
+  const regex = (key) => new RegExp(`(src|href)="(.*)${key}"`);
 
   return keys.reduce(
-    (result, key) => result.replace(`${key}"`, `${assets[key]}"`),
+    (result, key) => result.replace(regex(key), `$1=$2${assets[key]}"`),
     content
   );
 }
