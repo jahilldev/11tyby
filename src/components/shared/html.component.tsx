@@ -32,10 +32,13 @@ function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"
         ></meta>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap"
-          rel="stylesheet"
-        ></link>
+        {jsPath && (
+          <Fragment>
+            {scripts.map((script) => (
+              <link rel="preload" as="script" href={`/assets/${script}`} />
+            ))}
+          </Fragment>
+        )}
         {cssPath && <link rel="stylesheet" href={`/assets/${cssPath}`} />}
       </head>
       <body class={style.body}>
