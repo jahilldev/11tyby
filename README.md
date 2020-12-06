@@ -11,7 +11,7 @@ Getting setup with the necessary tooling to handle TypeScript, JSX, dynamic impo
 ### 1. Clone or download the repository
 
 ```shell
-git clone git@github.com:jhukdev/11ty-setup.git
+git clone git@github.com:jhukdev/11tyboo.git
 ```
 
 ### 2. Install the project dependencies
