@@ -57,7 +57,7 @@ function transformFileHash(content) {
   return keys.reduce(
     (result, key) =>
       result.replace(
-        new RegExp(`(script|link)(.*)(src|href)="(.*)${key}"`, 'g'),
+        new RegExp(`(script|link)(.*?)(src|href)="(.*?)${key}"`, 'g'),
         `$1$2$3="$4${assets[key]}"`
       ),
     content
