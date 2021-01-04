@@ -4,7 +4,7 @@ module.exports = {
     es2020: true,
     node: true,
   },
-  extends: ['prettier'],
+  extends: ['prettier', 'preact', 'plugin:jsx-a11y/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -15,6 +15,8 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
+    'jsx-a11y/media-has-caption': 'off',
+    'react/display-name': 'off',
     'no-unused-vars': 'off',
     'no-void': 'off',
     'import/no-unresolved': 'off',
@@ -25,6 +27,11 @@ module.exports = {
     'padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: 'const', next: 'function' },
+      { blankLine: 'always', prev: 'const', next: 'return' },
+      { blankLine: 'always', prev: 'const', next: 'if' },
+      { blankLine: 'always', prev: 'const', next: 'try' },
+      { blankLine: 'always', prev: 'const', next: 'expression' },
+      { blankLine: 'always', prev: '*', next: 'return' },
     ],
   },
   overrides: [
