@@ -41,13 +41,7 @@ const sassLoader = {
 
 const pages = {
   mode: RELEASE ? 'production' : 'development',
-  entry: glob.sync(`${__dirname}/src/**/*.11ty.ts*`).reduce((result, file) => {
-    const [name] = file.split('src/').slice(-1);
-
-    result[name.replace('.tsx', '')] = file;
-
-    return result;
-  }, {}),
+  entry: glob.sync(`${__dirname}/src/**/*.11ty.ts*`).reduce(getModuleFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
   target: 'node',
@@ -55,7 +49,7 @@ const pages = {
   output: {
     path: path.join(__dirname, '/src/_js'),
     filename: '[name].js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss'],
@@ -70,7 +64,7 @@ const pages = {
     new CopyPlugin({
       patterns: [
         {
-          from: 'articles',
+          from: 'modules/articles',
           to: 'articles',
           globOptions: {
             ignore: ['**/*.ts*', '**/*.scss'],
@@ -171,13 +165,7 @@ const pages = {
 
 const entry = {
   mode: RELEASE ? 'production' : 'development',
-  entry: glob.sync(`${__dirname}/src/entry/*.entry.ts*`).reduce((result, file) => {
-    const name = path.basename(file, path.extname(file));
-
-    result[name] = file;
-
-    return result;
-  }, {}),
+  entry: glob.sync(`${__dirname}/src/modules/**/*.entry.ts*`).reduce(getModuleFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
   target: 'web',
@@ -278,6 +266,24 @@ const entry = {
     },
   },
 };
+
+/* -----------------------------------
+ *
+ * Module
+ *
+ * -------------------------------- */
+
+function getModuleFile(result, file) {
+  let [name] = file.split('src/').slice(-1);
+
+  if (file.includes('modules/')) {
+    [name] = file.split('modules/').slice(-1);
+  }
+
+  result[name.replace(/\.tsx?$/g, '')] = file;
+
+  return result;
+}
 
 /* -----------------------------------
  *

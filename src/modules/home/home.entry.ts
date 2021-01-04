@@ -4,4 +4,4 @@
  *
  * -------------------------------- */
 
-import '@/components/form';
+import '@/modules/home/components/form';
