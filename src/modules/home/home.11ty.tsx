@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import style from './index.module.scss';
+import style from './home.module.scss';
 
 /* -----------------------------------
  *
@@ -7,8 +7,8 @@ import style from './index.module.scss';
  *
  * -------------------------------- */
 
-import { Html } from '@/components/shared';
-import { Form } from '@/components/form';
+import { Html } from '@/modules/shared/components';
+import { Form } from '@/modules/home/components/form';
 
 /* -----------------------------------
  *
@@ -18,7 +18,7 @@ import { Form } from '@/components/form';
 
 function Page() {
   return (
-    <Html title="Home - 11ty" cssPath="index.11ty.css" jsPath="index.entry.js">
+    <Html title="Home - 11ty" cssPath="home/home.11ty.css" jsPath="home/home.entry.js">
       <main class={style.content}>
         <p class={style.text}>11ty Setup</p>
         <a href="/articles/first-post" class={style.link}>
@@ -36,4 +36,9 @@ function Page() {
  *
  * -------------------------------- */
 
-module.exports = Page;
+module.exports = {
+  render: Page,
+  data: () => ({
+    permalink: 'index.html',
+  }),
+};
