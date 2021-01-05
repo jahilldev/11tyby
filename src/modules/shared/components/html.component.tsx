@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { h, Fragment } from 'preact';
 import style from './html.module.scss';
 
@@ -9,6 +10,7 @@ import style from './html.module.scss';
 
 interface IProps {
   title?: string;
+  inlineCss?: string;
   cssPath?: string;
   jsPath?: string;
   children: any;
@@ -20,7 +22,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
+function Html({ title = '11ty', inlineCss, cssPath, jsPath, children }: IProps) {
   const scripts = ['vendor.js', jsPath];
 
   return (
@@ -31,7 +33,7 @@ function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"
-        ></meta>
+        />
         {jsPath && (
           <Fragment>
             {scripts.map((script) => (
@@ -39,6 +41,7 @@ function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
             ))}
           </Fragment>
         )}
+        {inlineCss && <style dangerouslySetInnerHTML={{ __html: inlineCss }} />}
         {cssPath && <link rel="stylesheet" href={`/assets/${cssPath}`} />}
       </head>
       <body class={style.body}>

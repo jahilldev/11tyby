@@ -1,4 +1,5 @@
 const { isValidElement } = require('preact');
+const fs = require('fs');
 const { render } = require('preact-render-to-string');
 
 /* -----------------------------------
@@ -33,6 +34,8 @@ module.exports = function (config) {
     return content;
   });
 
+  config.addJavaScriptFunction('getFileContents', getFileContents);
+
   return {
     passthroughFileCopy: true,
     dir: {
@@ -62,4 +65,22 @@ function transformFileHash(content) {
       ),
     content
   );
+}
+
+/* -----------------------------------
+ *
+ * Contents
+ *
+ * -------------------------------- */
+
+function getFileContents(path) {
+  const assets = require('./src/_js/assets.json');
+
+  if (!assets[path]) {
+    return;
+  }
+
+  const filePath = `./src/_js/assets/${assets[path]}`;
+
+  return fs.readFileSync(filePath).toString();
 }

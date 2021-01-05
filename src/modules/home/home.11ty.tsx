@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { IPage } from '../shared/model/page.model';
 import style from './home.module.scss';
 
 /* -----------------------------------
@@ -16,9 +17,11 @@ import { Form } from '@/modules/home/components/form';
  *
  * -------------------------------- */
 
-function Page() {
+function Page(this: IPage) {
+  const inlineCss = this.getFileContents('home/home.11ty.css');
+
   return (
-    <Html title="Home - 11ty" cssPath="home/home.11ty.css" jsPath="home/home.entry.js">
+    <Html title="Home - 11ty" inlineCss={inlineCss} jsPath="home/home.entry.js">
       <main class={style.content}>
         <p class={style.text}>11ty Setup</p>
         <a href="/articles/first-post" class={style.link}>
