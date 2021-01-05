@@ -23,7 +23,7 @@ function Page(this: IPage) {
   return (
     <Html title="Home - 11ty" inlineCss={inlineCss} jsPath="home/home.entry.js">
       <main class={style.content}>
-        <p class={style.text}>11ty Setup</p>
+        <p class={style.text}>11tyboo</p>
         <a href="/articles/first-post" class={style.link}>
           Go to the First post
         </a>
