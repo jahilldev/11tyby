@@ -29,7 +29,7 @@ function Form({ title, className = '' }: IProps) {
   };
 
   return (
-    <form class={className}>
+    <form class={className} onSubmit={(event) => event.preventDefault()}>
       <h2 class={style.title}>{title}</h2>
       <label htmlFor="demo" class={style.label}>
         Type something:
