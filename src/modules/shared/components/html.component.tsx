@@ -43,6 +43,7 @@ function Html({ title = '11ty', summary, inlineCss, cssPath, jsPath, children }:
             ))}
           </Fragment>
         )}
+        {getFontLink()}
         {inlineCss && <style dangerouslySetInnerHTML={{ __html: inlineCss }} />}
         {cssPath && <link rel="stylesheet" href={`/assets/${cssPath}`} />}
       </head>
@@ -58,6 +59,24 @@ function Html({ title = '11ty', summary, inlineCss, cssPath, jsPath, children }:
       </body>
     </html>
   );
+}
+
+/* -----------------------------------
+ *
+ * Fonts
+ *
+ * -------------------------------- */
+
+function getFontLink() {
+  const fonts = ['Lato:wght@100;300;400'];
+  const result = fonts.map((font) => `family=${font}`).join('&');
+
+  return h('link', {
+    href: `https://fonts.googleapis.com/css2?${result}&display=swap`,
+    rel: 'stylesheet',
+    media: 'none',
+    onload: "if(media!='all')media='all'",
+  });
 }
 
 /* -----------------------------------
