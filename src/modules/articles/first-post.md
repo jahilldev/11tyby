@@ -9,3 +9,5 @@ cssPath: layouts/article.11ty.css
 <img src="/articles/_images/11ty-logo.png" width="180">
 
 First post!
+
+<a href="/">Back to home</a>
