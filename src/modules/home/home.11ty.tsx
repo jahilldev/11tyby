@@ -21,7 +21,12 @@ function Page(this: IPage) {
   const inlineCss = this.getAssetContents('home/home.11ty.css');
 
   return (
-    <Html title="Home - 11ty" inlineCss={inlineCss} jsPath="home/home.entry.js">
+    <Html
+      title="Home - 11ty"
+      summary="11ty demo"
+      inlineCss={inlineCss}
+      jsPath="home/home.entry.js"
+    >
       <main class={style.content}>
         <p class={style.text}>11tyboo</p>
         <a href="/articles/first-post" class={style.link}>

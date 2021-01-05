@@ -10,6 +10,7 @@ import style from './html.module.scss';
 
 interface IProps {
   title?: string;
+  summary?: string;
   inlineCss?: string;
   cssPath?: string;
   jsPath?: string;
@@ -22,7 +23,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Html({ title = '11ty', inlineCss, cssPath, jsPath, children }: IProps) {
+function Html({ title = '11ty', summary, inlineCss, cssPath, jsPath, children }: IProps) {
   const scripts = ['vendor.js', jsPath];
 
   return (
@@ -30,6 +31,7 @@ function Html({ title = '11ty', inlineCss, cssPath, jsPath, children }: IProps) 
       <head>
         <meta charSet="utf-8" />
         <title>{title}</title>
+        <meta name="description" content={summary} />
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"

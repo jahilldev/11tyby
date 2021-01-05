@@ -31,11 +31,15 @@ function Form({ title, className = '' }: IProps) {
   return (
     <form class={className}>
       <h2 class={style.title}>{title}</h2>
+      <label htmlFor="demo" class={style.label}>
+        Type something:
+      </label>
       <input
-        type="email"
+        id="demo"
+        type="text"
         onKeyUp={onKeyUp}
         className={style.input}
-        placeholder="Type something.."
+        placeholder="..."
       />
       {value && (
         <p class={style.text}>

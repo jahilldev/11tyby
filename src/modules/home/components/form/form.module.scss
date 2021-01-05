@@ -9,8 +9,23 @@
 .title {
   text-align: center;
   font-weight: 300;
+  font-size: 32px;
   color: white;
-  margin: 0 0 1em;
+  margin: 0 0 1.5em;
+}
+
+/* -----------------------------------
+ *
+ * Label
+ *
+ * -------------------------------- */
+
+.label {
+  display: block;
+  color: #b6b6b6;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0 0 10px;
 }
 
 /* -----------------------------------
