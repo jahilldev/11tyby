@@ -34,7 +34,7 @@ module.exports = function (config) {
     return content;
   });
 
-  config.addJavaScriptFunction('getFileContents', getFileContents);
+  config.addJavaScriptFunction('getAssetContents', getAssetContents);
 
   return {
     passthroughFileCopy: true,
@@ -73,7 +73,7 @@ function transformFileHash(content) {
  *
  * -------------------------------- */
 
-function getFileContents(path) {
+function getAssetContents(path) {
   const assets = require('./src/_js/assets.json');
 
   if (!assets[path]) {

@@ -5,7 +5,7 @@
  * -------------------------------- */
 
 interface IPage {
-  getFileContents: (file: string) => string;
+  getAssetContents: (file: string) => string;
 }
 
 /* -----------------------------------

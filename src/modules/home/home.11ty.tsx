@@ -18,7 +18,7 @@ import { Form } from '@/modules/home/components/form';
  * -------------------------------- */
 
 function Page(this: IPage) {
-  const inlineCss = this.getFileContents('home/home.11ty.css');
+  const inlineCss = this.getAssetContents('home/home.11ty.css');
 
   return (
     <Html title="Home - 11ty" inlineCss={inlineCss} jsPath="home/home.entry.js">
