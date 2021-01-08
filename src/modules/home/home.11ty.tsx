@@ -28,7 +28,7 @@ function Page(this: IPage) {
       jsPath="home/home.entry.js"
     >
       <main class={style.content}>
-        <p class={style.text}>11tyboo</p>
+        <p class={style.text}>11tyby</p>
         <a href="/articles/first-post" class={style.link}>
           Go to the First post
         </a>
