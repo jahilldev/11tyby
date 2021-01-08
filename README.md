@@ -67,13 +67,13 @@ It's recommded that you create components within their own folder, and apply thi
 
 Once you have a hydrated component, you'll need to import it into an "Entry" file. These are suffixed with `.entry`, and must be placed within their respective module folder, e.g `./src/home/home.entry.ts`.
 
-This entry file needs to import your hydrated components, e.g:
+The entry file needs to import your hydrated components, e.g:
 
 ```javascript
 import '@/modules/home/components/form';
 ```
 
-This file is then referenced within your `.11ty.tsx` file, by passing it into the `<Html>` component via `jsPath`, e.g:
+This file is then referenced within your `.11ty.tsx` file by passing it into the `<Html>` component via `jsPath`, e.g:
 
 ```jsx
 /*[...]*/
