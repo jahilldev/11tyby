@@ -1,4 +1,4 @@
-# 11tyboo
+# 11tyby
 
 > An organised 11ty boilerplate to get you up and running fast. Features TypeScript, native JSX support via Preact, CSS Modules with SASS, a well defined webpack config for great DX, and all pre-optimised for performance.
 
@@ -8,7 +8,7 @@ Getting setup with the necessary tooling to handle TypeScript, JSX, dynamic impo
 
 ## Structure
 
-The project is structured via the module pattern, files are grouped via feature, e.g `./src/modules/home`. This allows you to better future proof your application as it grows, and localise code where it's needed. Your page `*.11ty.tsx` files reside within their relevant feature folder, and export a `permalink` property for [you to define their url structure](https://github.com/jhukdev/11tyboo/blob/master/src/modules/home/home.11ty.tsx#L50), e.g:
+The project is structured via the module pattern, files are grouped via feature, e.g `./src/modules/home`. This allows you to better future proof your application as it grows, and localise code where it's needed. Your page `*.11ty.tsx` files reside within their relevant feature folder, and export a `permalink` property for [you to define their url structure](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/home.11ty.tsx#L50), e.g:
 
 ```javascript
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
 
 ## Styling
 
-11tyboo comes pre-setup with support for CSS Modules and SASS. You have two options to import styles, globally or localised. To convert a SASS or CSS file into a CSS Module, you'll need to apply a `.module` suffix to your file, e.g `login.module.css`. You can then import this directly into a component:
+11tyby comes pre-setup with support for CSS Modules and SASS. You have two options to import styles, globally or localised. To convert a SASS or CSS file into a CSS Module, you'll need to apply a `.module` suffix to your file, e.g `login.module.css`. You can then import this directly into a component:
 
 ```jsx
 import style from './login.module.scss';
@@ -43,7 +43,7 @@ import './global.css';
 
 ## Hydration
 
-11tyboo comes with a dedicated function for you to apply [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish to hydrate on the client. You can apply this as follows:
+11tyby comes with a dedicated function for you to apply [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish to hydrate on the client. You can apply this as follows:
 
 ```jsx
 import { applyHydration } from '@/utility/hydrate.utility';
@@ -63,7 +63,7 @@ const Form = applyHydration('Form', MainForm);
 export { Form };
 ```
 
-It's recommded that you create components within their own folder, and apply this function in an `index.ts` file within. That way you can seperate any "transforms" the component might need at runtime with the component itself, you can [see an example here](https://github.com/jhukdev/11tyboo/blob/master/src/modules/home/components/form/index.ts).
+It's recommded that you create components within their own folder, and apply this function in an `index.ts` file within. That way you can seperate any "transforms" the component might need at runtime with the component itself, you can [see an example here](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/components/form/index.ts).
 
 Once you have a hydrated component, you'll need to import it into an "Entry" file. These are suffixed with `.entry`, and must be placed within their respective module folder, e.g `./src/home/home.entry.ts`.
 
@@ -96,14 +96,14 @@ module.exports = {
 };
 ```
 
-For a working example, [take a look at the `home` module here](https://github.com/jhukdev/11tyboo/blob/master/src/modules/home/home.11ty.tsx#L28).
+For a working example, [take a look at the `home` module here](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/home.11ty.tsx#L28).
 
 ## Installation
 
 ### 1. Clone or download the repository
 
 ```shell
-git clone git@github.com:jhukdev/11tyboo.git
+git clone git@github.com:jhukdev/11tyby.git
 ```
 
 ### 2. Install the project dependencies
