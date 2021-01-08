@@ -43,7 +43,7 @@ import './global.css';
 
 ## Hydration
 
-11tyboo comes with a dedicated function for you to apply [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish hydrate on the client. You can apply this as follows:
+11tyboo comes with a dedicated function for you to apply [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish to hydrate on the client. You can apply this as follows:
 
 ```jsx
 import { applyHydration } from '@/utility/hydrate.utility';
