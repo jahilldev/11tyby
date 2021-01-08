@@ -248,6 +248,7 @@ const entry = {
     ],
   },
   optimization: {
+    usedExports: true,
     mergeDuplicateChunks: true,
     moduleIds: 'hashed',
     runtimeChunk: false,
