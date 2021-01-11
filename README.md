@@ -8,7 +8,7 @@ Getting setup with the necessary tooling to handle TypeScript, JSX, dynamic impo
 
 ## Structure
 
-The project is structured via the module pattern, files are grouped via feature, e.g `./src/modules/home`. This allows you to better future proof your application as it grows, and localise code where it's needed. Your page `*.11ty.tsx` files reside within their relevant feature folder, and export a `permalink` property for [you to define their url structure](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/home.11ty.tsx#L50), e.g:
+The project is structured via the module pattern, files are grouped via feature, e.g `./src/modules/home`. This allows you to better future proof your application as it grows, and localise code where it's needed. Your page `*.11ty.tsx` files reside within their relevant feature folder, and export a `permalink` property for [you to define their url structure](https://www.11ty.dev/docs/permalinks/), e.g:
 
 ```javascript
 module.exports = {
@@ -97,6 +97,10 @@ module.exports = {
 ```
 
 For a working example, [take a look at the `home` module here](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/home.11ty.tsx#L28).
+
+## Data
+
+All of the existing offical 11ty methods to generate pages via data, from an API or otherwise, will work here. There are many great examples of how to do this in the official 11ty documentation, including the use of GraphQL: https://www.11ty.dev/docs/data-js/
 
 ## Installation
 
