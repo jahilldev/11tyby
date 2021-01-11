@@ -2,6 +2,8 @@
 
 > An organised 11ty boilerplate to get you up and running fast. Features TypeScript, native JSX support via Preact, CSS Modules with SASS, a well defined webpack config for great DX, and all pre-optimised for performance.
 
+Demo: https://11tyby.netlify.app/
+
 ## Why
 
 Getting setup with the necessary tooling to handle TypeScript, JSX, dynamic imports, SASS etc is time consuming. This project also has partial hydration to reduce the amount of code shipped to your users.
