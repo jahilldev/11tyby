@@ -102,7 +102,7 @@ For a working example, [take a look at the `home` module here](https://github.co
 
 ## Data
 
-All of the existing offical 11ty methods to generate pages via data, from an API or otherwise, will work here. There are many great examples of how to do this in the official 11ty documentation, including the use of GraphQL: https://www.11ty.dev/docs/data-js/
+All of the existing official 11ty methods to gather data from an API or otherwise, will work here. There are many great examples of how to do this in the official 11ty documentation, including the use of GraphQL: https://www.11ty.dev/docs/data-js/
 
 ## Installation
 
