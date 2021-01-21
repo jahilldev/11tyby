@@ -4,6 +4,16 @@ import style from './home.module.scss';
 
 /* -----------------------------------
  *
+ * IProps
+ *
+ * -------------------------------- */
+
+interface IProps extends IData {
+  permalink: string;
+}
+
+/* -----------------------------------
+ *
  * Components
  *
  * -------------------------------- */
@@ -17,7 +27,7 @@ import { Form } from '@/modules/home/components/form';
  *
  * -------------------------------- */
 
-function Page(this: IPage, { siteMeta }: IData) {
+function Page(this: IPage, { siteMeta }: IProps) {
   const inlineCss = this.getAssetContents('home/home.11ty.css');
 
   return (
