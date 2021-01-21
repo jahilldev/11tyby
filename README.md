@@ -126,7 +126,7 @@ function Page({ global }: IProps) {
 }
 ```
 
-To add local data, e.g data specific to a module, add an `.data.ts` file within the relevant module folder. This will then be accessible in exactly the same way as shown above, but only for that page. For example, if you added `home.data.ts` to `./src/modules/home`, your home page `11ty.ts` file would have access to the values held within that data file.
+To add local data, e.g data specific to a module, add a file suffixed with `.data` within the relevant module folder. This will then be accessible in exactly the same way as shown above, but only for that page. For example, if you added `home.data.ts` to `./src/modules/home`, your home page `11ty.ts` file would have access to the values held within that data file.
 
 ## Installation
 
