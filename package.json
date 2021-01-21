@@ -6,7 +6,7 @@
   "author": "jhukdev",
   "license": "MIT",
   "scripts": {
-    "start": "npm-run-all clean -p watch:*",
+    "start": "npm-run-all clean build:pages -p watch:*",
     "clean": "rimraf dist src/_js",
     "build": "npm-run-all clean build:*",
     "build:pages": "webpack",
