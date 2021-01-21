@@ -7,9 +7,9 @@
 interface IPage {
   slug: string;
   url: string;
-  getCollectionItem: any;
-  getPreviousCollectionItem: any;
-  getNextCollectionItem: any;
+  getCollectionItem: (page: string) => any;
+  getPreviousCollectionItem: (page: string) => any;
+  getNextCollectionItem: (page: string) => any;
   getAssetContents: (file: string) => string;
 }
 
