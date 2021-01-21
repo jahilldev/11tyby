@@ -1,4 +1,6 @@
+/* eslint-disable react/no-danger */
 import { h } from 'preact';
+import { IData, IPage } from '@/modules/shared/model/page.model';
 import style from './article.module.scss';
 
 /* -----------------------------------
@@ -7,7 +9,7 @@ import style from './article.module.scss';
  *
  * -------------------------------- */
 
-interface IData {
+interface IProps extends IData {
   title: string;
   content: string;
   cssPath: string;
@@ -27,9 +29,9 @@ import { Html } from '@/modules/shared/components';
  *
  * -------------------------------- */
 
-function Page({ title, content, cssPath }: IData) {
+function Page(this: IPage, { siteMeta, title, content, cssPath }: IProps) {
   return (
-    <Html title={title} cssPath={cssPath}>
+    <Html title={`${siteMeta.pageTitle} - ${title}`} cssPath={cssPath}>
       <main class={style.content}>
         <article class={style.article} dangerouslySetInnerHTML={{ __html: content }} />
       </main>
