@@ -52,6 +52,7 @@ module.exports = function (config) {
 
   return {
     passthroughFileCopy: true,
+    jsDataFileSuffix: '.data',
     dir: {
       input: 'src/_js',
       output: 'dist',
