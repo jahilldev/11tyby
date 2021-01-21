@@ -344,10 +344,7 @@ function getDataFiles() {
     .sync(`${__dirname}/src/**/*.11tydata.ts`)
     .reduce(getSourceFile, {});
 
-  const dataFiles = { ...globalData, ...moduleData };
-  const totalItems = Object.keys(dataFiles).length;
-
-  return dataFiles;
+  return { ...globalData, ...moduleData };
 }
 
 /* -----------------------------------
