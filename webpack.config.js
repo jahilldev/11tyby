@@ -339,10 +339,7 @@ const entry = {
 
 function getDataFiles() {
   const globalData = glob.sync(`${__dirname}/src/data/*.ts`).reduce(getSourceFile, {});
-
-  const moduleData = glob
-    .sync(`${__dirname}/src/**/*.11tydata.ts`)
-    .reduce(getSourceFile, {});
+  const moduleData = glob.sync(`${__dirname}/src/**/*.data.ts`).reduce(getSourceFile, {});
 
   return { ...globalData, ...moduleData };
 }
