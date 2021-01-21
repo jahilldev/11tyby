@@ -19,6 +19,7 @@ module.exports = function (config) {
   });
 
   config.setUseGitIgnore(false);
+  config.setDataDeepMerge(true);
 
   config.addTransform('jsx', (content) => {
     if (isValidElement(content)) {
@@ -54,6 +55,7 @@ module.exports = function (config) {
     dir: {
       input: 'src/_js',
       output: 'dist',
+      data: 'data',
       layouts: 'layouts',
       includes: '_includes',
     },

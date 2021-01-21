@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { IPage } from '../shared/model/page.model';
+import { IPage, IData } from '../shared/model/page.model';
 import style from './home.module.scss';
 
 /* -----------------------------------
@@ -17,12 +17,12 @@ import { Form } from '@/modules/home/components/form';
  *
  * -------------------------------- */
 
-function Page(this: IPage) {
+function Page(this: IPage, { siteMeta }: IData) {
   const inlineCss = this.getAssetContents('home/home.11ty.css');
 
   return (
     <Html
-      title="Home - 11ty"
+      title={siteMeta.pageTitle}
       summary="11ty demo"
       inlineCss={inlineCss}
       jsPath="home/home.entry.js"

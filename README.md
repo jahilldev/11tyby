@@ -102,7 +102,31 @@ For a working example, [take a look at the `home` module here](https://github.co
 
 ## Data
 
-All official 11ty methods to gather data from an API or otherwise, will work here. There are many great examples of how to do this in the official 11ty documentation, including the use of GraphQL: https://www.11ty.dev/docs/data-js/
+All official 11ty methods to gather data from an API or otherwise, will work here. There are many great examples of how to do this in the official 11ty documentation, including the use of GraphQL: https://www.11ty.dev/docs/data-js/.
+
+To define _global_ data, add either JSON, JS or TypeScript files to the `./src/data` folder. These will then be parsed by 11ty and added via the [data cascade](https://www.11ty.dev/docs/data-cascade/). You can access these directly in your `.11ty.ts*` files.
+
+For example, if you were to add a `global.ts` file to `./src/data`, you would access this via a `global` property in your pages argument object:
+
+```tsx
+interface IProps {
+  global: {
+    title: string;
+  };
+}
+
+/*[...]*/
+
+function Page({ global }: IProps) {
+  return (
+    <main>
+      <h1>{global.title}</h1>
+    </main>
+  );
+}
+```
+
+To add local data, e.g data specific to a module, add an `.11tydata.ts` file within the relevant module folder. This will then be accessible in exactly the same way as shown above, but only for that page. For example, if you added `home.11tydata.ts` to `./src/modules/home`, your home page `11ty.ts` file would have access to the values held within that data file.
 
 ## Installation
 

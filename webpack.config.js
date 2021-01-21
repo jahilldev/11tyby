@@ -35,13 +35,76 @@ const sassLoader = {
 
 /* -----------------------------------
  *
+ * Data
+ *
+ * -------------------------------- */
+
+const data = {
+  mode: RELEASE ? 'production' : 'development',
+  entry: getDataFiles(),
+  context: path.join(__dirname, '/src/'),
+  cache: true,
+  target: 'node',
+  externals: fs.readdirSync('node_modules'),
+  output: {
+    path: path.join(__dirname, '/src/_js'),
+    filename: '[name].js',
+    libraryTarget: 'umd',
+  },
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx', '.json', '.scss'],
+    alias: {
+      '@': path.resolve(__dirname, `./src/`),
+    },
+  },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'data',
+          to: 'data',
+          noErrorOnMissing: true,
+          globOptions: {
+            ignore: ['**/*.ts'],
+          },
+        },
+      ],
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+      },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: !RELEASE,
+        parallel: true,
+        terserOptions: {
+          keep_fnames: true,
+        },
+      }),
+    ],
+  },
+};
+
+/* -----------------------------------
+ *
  * Pages
  *
  * -------------------------------- */
 
 const pages = {
   mode: RELEASE ? 'production' : 'development',
-  entry: glob.sync(`${__dirname}/src/**/*.11ty.ts*`).reduce(getModuleFile, {}),
+  entry: glob.sync(`${__dirname}/src/**/*.11ty.ts*`).reduce(getSourceFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
   target: 'node',
@@ -165,7 +228,7 @@ const pages = {
 
 const entry = {
   mode: RELEASE ? 'production' : 'development',
-  entry: glob.sync(`${__dirname}/src/modules/**/*.entry.ts*`).reduce(getModuleFile, {}),
+  entry: glob.sync(`${__dirname}/src/modules/**/*.entry.ts*`).reduce(getSourceFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
   target: 'web',
@@ -270,11 +333,30 @@ const entry = {
 
 /* -----------------------------------
  *
- * Module
+ * Data
  *
  * -------------------------------- */
 
-function getModuleFile(result, file) {
+function getDataFiles() {
+  const globalData = glob.sync(`${__dirname}/src/data/*.ts`).reduce(getSourceFile, {});
+
+  const moduleData = glob
+    .sync(`${__dirname}/src/**/*.11tydata.ts`)
+    .reduce(getSourceFile, {});
+
+  const dataFiles = { ...globalData, ...moduleData };
+  const totalItems = Object.keys(dataFiles).length;
+
+  return dataFiles;
+}
+
+/* -----------------------------------
+ *
+ * Source
+ *
+ * -------------------------------- */
+
+function getSourceFile(result, file) {
   let [name] = file.split('src/').slice(-1);
 
   if (file.includes('modules/')) {
@@ -308,4 +390,4 @@ function splitVendorChunks(module, chunks) {
  *
  * -------------------------------- */
 
-module.exports = [pages, entry];
+module.exports = [data, pages, entry];

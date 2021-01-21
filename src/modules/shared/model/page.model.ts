@@ -5,7 +5,24 @@
  * -------------------------------- */
 
 interface IPage {
+  slug: string;
+  url: string;
+  getCollectionItem: any;
+  getPreviousCollectionItem: any;
+  getNextCollectionItem: any;
   getAssetContents: (file: string) => string;
+}
+
+/* -----------------------------------
+ *
+ * IData
+ *
+ * -------------------------------- */
+
+interface IData {
+  siteMeta: {
+    pageTitle: string;
+  };
 }
 
 /* -----------------------------------
@@ -14,4 +31,4 @@ interface IPage {
  *
  * -------------------------------- */
 
-export { IPage };
+export { IPage, IData };
