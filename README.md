@@ -65,7 +65,7 @@ const Form = applyHydration('Form', MainForm);
 export { Form };
 ```
 
-It's recommded that you create components within their own folder, and apply this function in an `index.ts` file within. That way you can seperate any "transforms" the component might need at runtime with the component itself, you can [see an example here](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/components/form/index.ts).
+It's recommended that you create components within their own folder, and apply this function in an `index.ts` file within. That way you can seperate any "transforms" the component might need at runtime with the component itself, you can [see an example here](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/components/form/index.ts).
 
 Once you have a hydrated component, you'll need to import it into an "Entry" file. These are suffixed with `.entry`, and must be placed within their respective module folder, e.g `./src/home/home.entry.ts`.
 
