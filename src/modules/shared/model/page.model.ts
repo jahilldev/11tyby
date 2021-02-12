@@ -1,3 +1,5 @@
+import * as siteMeta from '@/data/siteMeta';
+
 /* -----------------------------------
  *
  * IPage
@@ -20,9 +22,7 @@ interface IPage {
  * -------------------------------- */
 
 interface IData {
-  siteMeta: {
-    pageTitle: string;
-  };
+  siteMeta: typeof siteMeta;
 }
 
 /* -----------------------------------
