@@ -259,6 +259,7 @@ const entry = {
             options: {
               compilerOptions: {
                 target: 'es5',
+                module: 'esnext',
               },
             },
           },
