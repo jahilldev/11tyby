@@ -46,6 +46,7 @@ module.exports = function (config) {
       permalinkBefore: true,
       permalinkClass: 'title-anchor',
       permalinkSymbol: '',
+      permalinkAttrs: (slug) => ({ name: normaliseTitleAnchors(slug) }),
       slugify: slugifyTitleAnchors,
     })
   );
@@ -119,4 +120,16 @@ function slugifyTitleAnchors(value) {
       .replace(/^-+/, '')
       .replace(/-+$/, '')
   );
+}
+
+/* -----------------------------------
+ *
+ * Anchors
+ *
+ * -------------------------------- */
+
+function normaliseTitleAnchors(value) {
+  const result = value.replace(/-/g, ' ');
+
+  return result.charAt(0).toUpperCase() + result.slice(1);
 }
