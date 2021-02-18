@@ -86,7 +86,6 @@ const data = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        cache: !RELEASE,
         parallel: true,
         terserOptions: {
           keep_fnames: true,
@@ -210,7 +209,6 @@ const pages = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        cache: !RELEASE,
         parallel: true,
         terserOptions: {
           keep_fnames: true,
@@ -314,10 +312,10 @@ const entry = {
   optimization: {
     usedExports: true,
     mergeDuplicateChunks: true,
-    moduleIds: 'hashed',
+    moduleIds: 'deterministic',
     runtimeChunk: false,
     splitChunks: {
-      name: true,
+      name: false,
       chunks: 'async',
       cacheGroups: {
         default: false,
