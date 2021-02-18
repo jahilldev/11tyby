@@ -46,7 +46,7 @@ module.exports = function (config) {
       permalinkBefore: true,
       permalinkClass: 'title-anchor',
       permalinkSymbol: '',
-      permalinkAttrs: (slug) => ({ name: normaliseTitleAnchors(slug) }),
+      permalinkAttrs: (slug) => ({ 'aria-label': normaliseTitleAnchors(slug) }),
       slugify: slugifyTitleAnchors,
     })
   );
