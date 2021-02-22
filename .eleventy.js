@@ -71,7 +71,14 @@ module.exports = function (config) {
  * -------------------------------- */
 
 function transformFileHash(content) {
-  const assets = require('./src/_js/assets.json');
+  let assets = {};
+
+  try {
+    assets = require('./src/_js/assets.json');
+  } catch {
+    // no-op
+  }
+
   const keys = Object.keys(assets);
 
   return keys.reduce(
