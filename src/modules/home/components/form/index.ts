@@ -1,5 +1,5 @@
+import { define } from 'preactement';
 import { Form as Component } from './form.component';
-import { applyHydration } from '@/utility/hydrate.utility';
 
 /* -----------------------------------
  *
@@ -7,7 +7,7 @@ import { applyHydration } from '@/utility/hydrate.utility';
  *
  * -------------------------------- */
 
-const Form = applyHydration('Form', Component);
+const Form = define('home-form', () => Component);
 
 /* -----------------------------------
  *

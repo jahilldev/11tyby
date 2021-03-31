@@ -45,10 +45,10 @@ import './global.css';
 
 ## Hydration
 
-11tyby comes with a dedicated function for you to apply [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish to hydrate on the client. You can apply this as follows:
+11tyby [includes a package](https://github.com/jhukdev/preactement) dedicated to applying [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish to hydrate on the client. You can apply this as follows:
 
 ```jsx
-import { applyHydration } from '@/utility/hydrate.utility';
+import { define } from 'preactement';
 
 /*[...]*/
 
@@ -58,7 +58,7 @@ function MainForm() {
 
 /*[...]*/
 
-const Form = applyHydration('Form', MainForm);
+const Form = define('main-form', MainForm);
 
 /*[...]*/
 
