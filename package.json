@@ -1,6 +1,6 @@
 {
   "name": "11tyby",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Home",
   "main": "index.js",
   "author": "jhukdev",
@@ -19,7 +19,7 @@
   "dependencies": {
     "preact": "10.5.13",
     "preact-render-to-string": "5.1.18",
-    "preactement": "1.2.1"
+    "preactement": "1.4.4"
   },
   "devDependencies": {
     "@11ty/eleventy": "0.12.1",
