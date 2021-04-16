@@ -3629,10 +3629,10 @@ preact@10.5.13:
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.13.tgz#85f6c9197ecd736ce8e3bec044d08fd1330fa019"
   integrity sha512-q/vlKIGNwzTLu+jCcvywgGrt+H/1P/oIRSD6mV4ln3hmlC+Aa34C7yfPI4+5bzW8pONyVXYS7SvXosy2dKKtWQ==
 
-preactement@1.4.4:
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/preactement/-/preactement-1.4.4.tgz#2046bee6532263d89d969abbc9cd9f27fb510a0c"
-  integrity sha512-bBzd/Zrfz3/dArKuS4WPwN/H0D+DKozcIkwLSdE85cRLNnvvXSEuhAh0y6iRgBnm+2Yrw6FS9DEIPjMw8dcwrg==
+preactement@1.4.5:
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/preactement/-/preactement-1.4.5.tgz#763491e088ea0a218760a054bd2157c43194fb96"
+  integrity sha512-9HyrifTlU5lPs9vrAHxkqtmJ/EJtNJvn3EHKoRyEpvwq0vZCEFIWCfwetQLgeinmFoLuGzNfc5R7qJx0fNth2A==
   dependencies:
     preact-markup "^2.1.1"
     tslib "^2.2.0"
