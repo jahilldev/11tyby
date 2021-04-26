@@ -38,3 +38,27 @@ declare module '*.svg' {
 
   export default value;
 }
+
+/* -----------------------------------
+ *
+ * JPG
+ *
+ * -------------------------------- */
+
+declare module '*.jpg' {
+  const value: string;
+
+  export default value;
+}
+
+/* -----------------------------------
+ *
+ * PNG
+ *
+ * -------------------------------- */
+
+declare module '*.png' {
+  const value: string;
+
+  export default value;
+}
