@@ -18,7 +18,6 @@ interface IProps extends IData {
  *
  * -------------------------------- */
 
-import { Html } from '@/modules/shared/components';
 import { Form } from '@/modules/home/components/form';
 
 /* -----------------------------------
@@ -28,23 +27,14 @@ import { Form } from '@/modules/home/components/form';
  * -------------------------------- */
 
 function Page(this: IPage, { siteMeta }: IProps) {
-  const inlineCss = this.getAssetContents('home/home.11ty.css');
-
   return (
-    <Html
-      title={siteMeta.pageTitle}
-      summary="11ty demo"
-      inlineCss={inlineCss}
-      jsPath="home/home.entry.js"
-    >
-      <main class={style.content}>
-        <p class={style.text}>11tyby</p>
-        <a href="/articles/first-post" class={style.link}>
-          Go to the First post
-        </a>
-        <Form title="Hydrated Form" className={style.form} />
-      </main>
-    </Html>
+    <main class={style.content}>
+      <p class={style.text}>{siteMeta.pageTitle}</p>
+      <a href="/articles/first-post" class={style.link}>
+        Go to the First post
+      </a>
+      <Form title="Hydrated Form" className={style.form} />
+    </main>
   );
 }
 
@@ -57,6 +47,9 @@ function Page(this: IPage, { siteMeta }: IProps) {
 module.exports = {
   render: Page,
   data: () => ({
+    layout: 'default.11ty.js',
+    cssPath: 'home/home.11ty.css',
+    jsPath: 'home/home.entry.js',
     permalink: 'index.html',
   }),
 };
