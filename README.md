@@ -95,7 +95,7 @@ The entry file needs to import your hydrated components, e.g:
 import '@/modules/home/components/form';
 ```
 
-This file is then referenced within your `.11ty.tsx` file by passing it into the `data` object exported from your component, e.g:
+This file is then referenced within your `*.11ty.tsx` file by passing it into the `data` object exported from your component, e.g:
 
 ```jsx
 /*[...]*/
