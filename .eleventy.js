@@ -97,16 +97,18 @@ function transformFileHash(content) {
  *
  * -------------------------------- */
 
-function getAssetContents(path) {
+function getAssetContents(paths) {
   const assets = require('./src/_js/assets.json');
 
-  if (!assets[path]) {
+  if (!paths.some((path) => assets[path])) {
     return;
   }
 
-  const filePath = `./src/_js/assets/${assets[path]}`;
+  return paths.reduce((result, path) => {
+    const value = fs.readFileSync(`./src/_js/assets/${assets[path]}`);
 
-  return fs.readFileSync(filePath).toString();
+    return result + value.toString();
+  }, '');
 }
 
 /* -----------------------------------

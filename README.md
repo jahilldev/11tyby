@@ -43,6 +43,26 @@ import './global.css';
 /*[...]*/
 ```
 
+To apply the generated style sheet to a page, you'll need to add a `cssPath` property within the data object exported from your `*.11ty.tsx` files, e.g:
+
+```jsx
+function Page() {
+  return <main class={style.wrapper}>{/*[...]*/}</main>;
+}
+
+/*[...]*/
+
+module.exports = {
+  render: Page,
+  data: () => ({
+    permalink: 'index.html',
+    cssPath: 'login/login.module.css', // <----
+  }),
+};
+```
+
+The path will match the respective module folder, and the name will mirror that of your `*.11ty.tsx` file name but with a CSS extension.
+
 ## Hydration
 
 11tyby [includes a package](https://github.com/jhukdev/preactement) dedicated to applying [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish to hydrate on the client. You can apply this as follows:
@@ -75,17 +95,12 @@ The entry file needs to import your hydrated components, e.g:
 import '@/modules/home/components/form';
 ```
 
-This file is then referenced within your `.11ty.tsx` file by passing it into the `<Html>` component via `jsPath`, e.g:
+This file is then referenced within your `*.11ty.tsx` file by passing it into the `data` object exported from your component, e.g:
 
 ```jsx
 /*[...]*/
-
-import { Html } from '@/modules/shared/components';
-
-/*[...]*/
-
 function Page() {
-  return <Html jsPath="home/home.entry.js">/*[...]*/</Html>;
+  return <main>{/*[...]*/}</main>;
 }
 
 /*[...]*/
@@ -94,6 +109,7 @@ module.exports = {
   render: Page,
   data: () => ({
     permalink: 'index.html',
+    jsPath: 'home/home.entry.js', // <----
   }),
 };
 ```
