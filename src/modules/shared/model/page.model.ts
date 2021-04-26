@@ -12,7 +12,7 @@ interface IPage {
   getCollectionItem: (page: string) => any;
   getPreviousCollectionItem: (page: string) => any;
   getNextCollectionItem: (page: string) => any;
-  getAssetContents: (file: string) => string;
+  getAssetContents: (paths: string[]) => string;
 }
 
 /* -----------------------------------
