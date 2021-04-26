@@ -22,6 +22,8 @@ interface IPage {
  * -------------------------------- */
 
 interface IData {
+  cssPath?: string;
+  jsPath?: string;
   siteMeta: typeof siteMeta;
 }
 
