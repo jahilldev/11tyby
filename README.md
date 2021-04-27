@@ -56,7 +56,7 @@ module.exports = {
   render: Page,
   data: () => ({
     permalink: 'index.html',
-    cssPath: 'login/login.module.css', // <----
+    cssPath: 'login/login.11ty.css', // <----
   }),
 };
 ```
