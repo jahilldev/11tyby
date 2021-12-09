@@ -93,6 +93,9 @@ const data = {
       }),
     ],
   },
+  watchOptions: {
+    aggregateTimeout: 500,
+  },
 };
 
 /* -----------------------------------
@@ -216,6 +219,9 @@ const pages = {
       }),
     ],
   },
+  watchOptions: {
+    aggregateTimeout: 500,
+  },
 };
 
 /* -----------------------------------
@@ -327,6 +333,9 @@ const entry = {
         },
       },
     },
+  },
+  watchOptions: {
+    aggregateTimeout: 500,
   },
 };
 
