@@ -6,7 +6,7 @@
   "author": "jhukdev",
   "license": "MIT",
   "scripts": {
-    "start": "npm-run-all clean -p watch:*",
+    "start": "npm-run-all clean build:pages -p watch:*",
     "clean": "rimraf dist src/_js",
     "build": "npm-run-all clean build:*",
     "build:pages": "webpack",
@@ -19,7 +19,7 @@
   "dependencies": {
     "preact": "10.5.13",
     "preact-render-to-string": "5.1.18",
-    "preactement": "1.4.5"
+    "preactement": "1.6.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "0.12.1",
