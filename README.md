@@ -78,7 +78,7 @@ function MainForm() {
 
 /*[...]*/
 
-const Form = define('main-form', MainForm);
+const Form = define('main-form', () => MainForm);
 
 /*[...]*/
 
