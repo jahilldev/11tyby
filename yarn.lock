@@ -3640,10 +3640,10 @@ preact@10.5.13:
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.13.tgz#85f6c9197ecd736ce8e3bec044d08fd1330fa019"
   integrity sha512-q/vlKIGNwzTLu+jCcvywgGrt+H/1P/oIRSD6mV4ln3hmlC+Aa34C7yfPI4+5bzW8pONyVXYS7SvXosy2dKKtWQ==
 
-preactement@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/preactement/-/preactement-1.6.0.tgz#6bab9591055a940bbc8c7d1e6de26ae65a91eb59"
-  integrity sha512-qhLs4drcvDiO/cb/5ksC5tN4ESmy9gb+xkh7ldV96rOvKltnmAXv8mPwDeifyNDqm4TmO+a/NTt4PolaP1mvJA==
+preactement@1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/preactement/-/preactement-1.6.3.tgz#bc35cbd2f03bc7f65535b2be6e28b539f39b9f2c"
+  integrity sha512-KS8nfvf7ocv75EnlExPiB9RxPdTVI+1WgJPzf1g5QOZF7hZn1mmHJNZ9RXmWn1qyyCFnz6DRpBYOl2kMYNx7Sg==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
