@@ -65,7 +65,7 @@ The path will match the respective module folder, and the name will mirror that 
 
 ## Hydration
 
-11tyby [includes a package](https://github.com/jhukdev/preactement) dedicated to applying [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish to hydrate on the client. You can apply this as follows:
+11tyby [includes a package](https://github.com/jahill-dev/preactement) dedicated to applying [partial hydration](https://www.jameshill.dev/articles/partial-hydration/). This works as an HOC, wrapping the component you wish to hydrate on the client. You can apply this as follows:
 
 ```jsx
 import { define } from 'preactement';
@@ -85,7 +85,7 @@ const Form = define('main-form', () => MainForm);
 export { Form };
 ```
 
-It's recommended that you create components within their own folder, and apply this function in an `index.ts` file within. That way you can seperate any "transforms" the component might need at runtime with the component itself, you can [see an example here](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/components/form/index.ts).
+It's recommended that you create components within their own folder, and apply this function in an `index.ts` file within. That way you can seperate any "transforms" the component might need at runtime with the component itself, you can [see an example here](https://github.com/jahill-dev/11tyby/blob/master/src/modules/home/components/form/index.ts).
 
 Once you have a hydrated component, you'll need to import it into an "Entry" file. These are suffixed with `.entry`, and must be placed within their respective module folder, e.g `./src/home/home.entry.ts`.
 
@@ -114,7 +114,7 @@ module.exports = {
 };
 ```
 
-For a working example, [take a look at the `home` module here](https://github.com/jhukdev/11tyby/blob/master/src/modules/home/home.11ty.tsx#L28).
+For a working example, [take a look at the `home` module here](https://github.com/jahill-dev/11tyby/blob/master/src/modules/home/home.11ty.tsx#L28).
 
 ## Data
 
@@ -149,7 +149,7 @@ To add local data, e.g data specific to a module, add a file suffixed with `.dat
 ### 1. Clone or download the repository
 
 ```shell
-git clone git@github.com:jhukdev/11tyby.git
+git clone git@github.com:jahill-dev/11tyby.git
 ```
 
 ### 2. Install the project dependencies

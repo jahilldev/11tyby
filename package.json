@@ -3,7 +3,7 @@
   "version": "1.3.2",
   "description": "Home",
   "main": "index.js",
-  "author": "jhukdev",
+  "author": "jahill-dev",
   "license": "MIT",
   "scripts": {
     "start": "npm-run-all clean pages -p watch:*",
