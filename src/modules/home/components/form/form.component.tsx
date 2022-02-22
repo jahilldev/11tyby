@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, Fragment } from 'preact';
 import { useState } from 'preact/hooks';
 import style from './form.module.scss';
 
@@ -29,7 +29,7 @@ function Form({ title, className = '' }: IProps) {
   };
 
   return (
-    <form class={className} onSubmit={(event) => event.preventDefault()}>
+    <Fragment>
       <h2 class={style.title}>{title}</h2>
       <label htmlFor="demo" class={style.label}>
         Type something:
@@ -46,7 +46,7 @@ function Form({ title, className = '' }: IProps) {
           <em>Value:</em> {value}
         </p>
       )}
-    </form>
+    </Fragment>
   );
 }
 
