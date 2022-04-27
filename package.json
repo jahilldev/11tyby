@@ -20,7 +20,7 @@
   "dependencies": {
     "preact": "10.6.4",
     "preact-render-to-string": "5.1.19",
-    "preactement": "1.7.0"
+    "preactement": "1.8.2"
   },
   "devDependencies": {
     "@11ty/eleventy": "1.0.0",
