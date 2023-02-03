@@ -22,12 +22,6 @@ interface IProps {
 function Form({ title, className = '' }: IProps) {
   const [value, setValue] = useState('');
 
-  const onKeyUp = (event: Event) => {
-    const { value } = event.target as HTMLInputElement;
-
-    setValue(value);
-  };
-
   return (
     <Fragment>
       <h2 class={style.title}>{title}</h2>
@@ -48,6 +42,12 @@ function Form({ title, className = '' }: IProps) {
       )}
     </Fragment>
   );
+
+  function onKeyUp(event: Event) {
+    const { value } = event.target as HTMLInputElement;
+
+    setValue(value);
+  }
 }
 
 /* -----------------------------------

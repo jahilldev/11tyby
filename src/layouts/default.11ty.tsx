@@ -34,7 +34,12 @@ function Page(this: IPage, { siteMeta, title = '', content, cssPath, jsPath }: I
   const pageCss = this.getAssetContents(['layouts/default.11ty.css', cssPath]);
 
   return (
-    <Html title={pageTitle} inlineCss={pageCss} jsPath={jsPath}>
+    <Html
+      title={pageTitle}
+      summary={siteMeta.metaDescription}
+      inlineCss={pageCss}
+      jsPath={jsPath}
+    >
       {content}
     </Html>
   );
